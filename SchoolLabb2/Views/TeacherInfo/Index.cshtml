@@ -1,0 +1,46 @@
+﻿@model List<SchoolLabb2.Models.TeacherInfoViewModel>
+@{
+    ViewData["Title"] = "Teachers";
+}
+
+<h1 class="display-4">Teacher information</h1>
+<a asp-controller="AddTeacherToClass" asp-action="Create" class=" btn btn-outline-primary">Select a teacher for a class </a>
+<a asp-controller="AddTeacherToCourse" asp-action="Create" class=" btn btn-outline-warning">Select a teacher for a course</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Teaching for class</th>
+            <th>Teaching for course</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model)
+        {
+            if(Model == null)
+            {
+            <p>Model null</p>    
+            }
+            <tr>
+                <td>@teacher.TeacherName</td>
+                <td>
+                    <ul>
+                        @foreach (var className in teacher.TeachesClass)
+                        {
+                            <li>@className</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var courseName in teacher.TeachesCourse)
+                        {
+                            <li>@courseName</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

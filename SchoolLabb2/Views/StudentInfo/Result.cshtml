@@ -1,0 +1,36 @@
+﻿@model List<SchoolLabb2.Models.StudentCourseViewModel>
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h1 class="display-4">Result</h1>
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CourseName</th>
+                <th>Students</th>
+                <th>Teacher for course</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.CourseName</td>
+                    <td>@student.StudentName</td>
+                    <td>@student.TeacherName</td>
+                    <td>
+                        <a asp-asp-controller="TeacherInfo" asp-action="Edit" asp-route-id="@student.TeacherName" class="btn btn-warning">Change Teacher</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No students for that course.</p>
+}
+<a asp-asp-controller="TeacherInfo" asp-action="Index">Return</a>

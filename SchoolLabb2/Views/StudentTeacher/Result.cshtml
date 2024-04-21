@@ -1,0 +1,38 @@
+﻿@model List<SchoolLabb2.Models.TeacherStudentViewModel>
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h1 class="display-4">Result</h1>
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Students</th>
+                <th>Teachers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var studentTeacher in Model)
+            {
+                <tr>
+                    <td>@studentTeacher.StudentName</td>
+                    <td>
+                        <ul>
+                            @foreach(var teacher in studentTeacher.TeacherName)
+                            {
+                                <li>@teacher</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>What, no teachers for any student? this is a wierd school</p>
+}
+<a asp-controller="Home" asp-action="Index">Home</a>

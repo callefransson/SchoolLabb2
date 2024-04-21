@@ -1,0 +1,31 @@
+﻿@model List<SchoolLabb2.Models.TeacherCourseViewModel>
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h1 class="display-4">Result</h1>
+@if(Model.Any())
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>CourseName</th>
+            <th>Teachers name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model)
+        {
+            <tr>
+                <td>@teacher.CourseName</td>
+                <td>@teacher.TeacherName</td>
+            </tr>
+        }
+    </tbody>
+    </table>
+}
+else
+{
+    <p>No teachers for that course. I feel bad for the students</p>
+}
+<a asp-asp-controller="TeacherInfo" asp-action="Index">Return</a>

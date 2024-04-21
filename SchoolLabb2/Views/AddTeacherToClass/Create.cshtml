@@ -1,0 +1,30 @@
+﻿@model SchoolLabb2.Models.Class
+@{
+     ViewData["Title"] = "Create";
+}
+<h1 class="display-4">Add student to a class</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Choose Student</label>
+                <select name="teacherId" class="form-control" asp-items="ViewBag.FkTeacherId">
+                </select>
+                <span asp-validation-for="ClassName" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label class="control-label">Choose a class</label>
+                <select name="classId" class="form-control" asp-items="ViewBag.FkClassId">
+                    <option value="">Select a teacher</option>
+                </select>
+                <span asp-validation-for="Teachers" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-controller="TeacherInfo" asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

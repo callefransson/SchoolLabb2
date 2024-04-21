@@ -1,0 +1,23 @@
+﻿ @model SchoolLabb2.Models.Course
+@{
+    ViewData["Title"] = "Search";
+}
+<h1 class="display-4">List all teachers for specific course</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Search">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Choose Course</label>
+                <select name="courseId" class="form-control" asp-items="ViewBag.FkCourseId">
+                </select>
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Search" class="btn btn-primary" />
+                <a asp-controller="TeacherInfo" asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

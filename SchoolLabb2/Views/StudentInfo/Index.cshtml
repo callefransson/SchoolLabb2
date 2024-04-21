@@ -1,0 +1,37 @@
+﻿@model List<SchoolLabb2.Models.StudentInfoViewModel>
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h1 class="display-4">Student information</h1>
+<a asp-controller="AddStudentToClass" asp-action="Create" class=" btn btn-outline-primary">Add student to a class</a>
+<a asp-controller="AddCourseToStudent" asp-action="Create" class=" btn btn-outline-warning">Add courses to a student</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Class</th>
+            <th>Courses</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentFirstName</td>
+                <td>@student.StudentLastName</td>
+                <td>@student.ClassName</td>
+                <td>
+                    <ul>
+                        @foreach (var courseName in student.ClassCourse)
+                        {
+                            <li>@courseName</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
