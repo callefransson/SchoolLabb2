@@ -10,7 +10,7 @@ namespace SchoolLabb2.Models
         [StringLength(30, ErrorMessage = "Course name can't be longer then 30 characters")]
         public string CourseName {  get; set; }
         public virtual ICollection<StudentCourseRelation> Students { get; set; } 
-        public virtual ICollection<TeacherCourseRelation> Teachers { get; set; }
+        public virtual ICollection<TeacherCourseRelation> TeacherCourses { get; set; }
 
     }
 }

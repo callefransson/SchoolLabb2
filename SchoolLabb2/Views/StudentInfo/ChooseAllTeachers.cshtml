@@ -1,0 +1,24 @@
+﻿@model SchoolLabb2.Models.ChooseTeacherViewModel
+
+@{
+    ViewData["Title"] = "Choose New Teacher";
+}
+
+<h1 class="display-4">Change to another teacher</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ChooseAllTeachers" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TeacherId" class="control-label">Select Teacher:</label>
+                <select asp-for="TeacherId" class="form-control" asp-items="@ViewBag.FkTeacherId"></select>
+            </div>
+            <input type="hidden" asp-for="CourseId" />
+            <input type="hidden" asp-for="StudentId" />
+            <div class="form-group mt-2">
+                <input type="submit" value="Confirm" class="btn btn-primary" />
+                <a asp-controller="StudentInfo" asp-action="Search" class="btn btn-outline-primary">Return</a>
+            </div>
+        </form>
+    </div>
+</div>

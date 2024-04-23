@@ -2,7 +2,7 @@
 {
     public class StudentInfoViewModel
     {
-        //public int StudentId { get; set; }
+        public int StudentId { get; set; }
         public string StudentFirstName { get; set; }
         public string StudentLastName { get; set; }
         public string ClassName { get; set; }
